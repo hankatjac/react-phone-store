@@ -1,8 +1,9 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import PayPalButton from './PayPalButton'
 
 
-const CartTotasls = ({value}) => {
+const CartTotals = ({value,history}) => {
     const {cartSubTotal, cartTax, cartTotal, clearCart} = value;
     return (
         <React.Fragment>
@@ -29,6 +30,7 @@ const CartTotasls = ({value}) => {
                                 total: <strong>$ {cartTotal}</strong>
                             </span>
                         </h5>
+                        <PayPalButton total={cartTotal} clearCart = {clearCart} history={history} />
                     </div>
                 </div>
             </div>     
@@ -36,4 +38,4 @@ const CartTotasls = ({value}) => {
     );
 };
 
-export default CartTotasls;
+export default CartTotals;
